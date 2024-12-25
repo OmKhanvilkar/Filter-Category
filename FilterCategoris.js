@@ -1,18 +1,19 @@
 Categories=[
     {
-        Name:'Male',
+        Name:'All',
         id:1
     },
     {
-        Name:'Female',
+        Name:'Male',
         id:2
     },
     {
-        Name:'Others',
+        Name:'Female',
         id:3
     },
     {
-        Name:'All',
+
+        Name:'Others',
         id:4
     }
 ];
@@ -20,31 +21,31 @@ Categories=[
 options=[
     {
         Name:'Om',
-        id:1
+        id:2
     },
     {
         Name:'Sahil',
-        id:1
+        id:2
     },
     {
         Name:'Prasad',
-        id:1
+        id:2
     },
     {
         Name:'Female 1',
-        id:2
+        id:3
     },
     {
         Name:'Female 2',
-        id:2
+        id:3
     },
     {
         Name:'Female 3',
-        id:2
+        id:3
     },
     {
         Name:'Angle Priya',
-        id:3
+        id:4
     }
 ];
 
@@ -53,32 +54,54 @@ let categoryhtml="";
 
 Categories.forEach((category) => {
     categoryhtml+=
-    `<button class="js-category-btn" data-id="${category.id}">
+    `
+    <button class="js-category-btn" data-id="${category.id}">
         ${category.Name}
-    </button>`
+    </button>
+    `
 });
 
 document.querySelector('.js-Categories')
     .innerHTML=categoryhtml;
 
-const catBtn=document.querySelectorAll('.js-category-btn');
-catBtn.forEach((btn)=>{
+function filterCategories(options=filter){
+    let optionsHtml='';
+    options.forEach((option)=>{
+        optionsHtml+=
+        `
+        <div class="options">
+            ${option.Name}
+        </div>
+        `;
+    });
+
+    document.querySelector('.js-options')
+        .innerHTML=optionsHtml;
+}
+filterCategories(options);
+
+
+let button=document.querySelectorAll('.js-category-btn');
+
+button.forEach((btn)=>{
     btn.addEventListener('click',()=>{
-        const categoryId = btn.getAttribute('data-id');
-        filterOptionsByCategory(categoryId);
+        const btnId=btn.getAttribute('data-id');
+        // console.log(btnId);
+
+        if(btnId==1){
+            filterCategories(options);
+            return;
+        }
+
+        let filter=[];
+        options.forEach((option)=>{ 
+            
+            if(option.id==btnId){
+                filter.push(option);
+                // console.log(option.Name);
+            }
+        });
+        console.log(filter); 
+        filterCategories(filter);
     });
 });
-    
-function filterOptionsByCategory(categoryId){
-    let filteredOptions = options.filter(option => option.id == categoryId);
-    let optionshtml="";
-    filteredOptions.forEach((option) => {
-        optionshtml += `<button>${option.Name}</button>`;
-    });
-
-    document.querySelector('.js-options').innerHTML = optionshtml;
-}
-
-filterOptionsByCategory([1]);
-
-
