@@ -101,7 +101,7 @@ button.forEach((btn)=>{
                 // console.log(option.Name);
             }
         });
-        console.log(filter); 
+        // console.log(filter); 
         filterCategories(filter);
     });
 });

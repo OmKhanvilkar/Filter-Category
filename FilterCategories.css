@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+.Categories {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #fff;
+    border-bottom: 2px solid #ddd;
+}
+
+.Categories .js-category-btn {
+    padding: 10px 20px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.Categories .js-category-btn:hover {
+    background-color: #0056b3;
+}
+
+.Categories .js-category-btn:active {
+    ground-color: #003d82;
+}
+
+.options {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px;
+}
+
+.options .options {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #333;
+    font-size: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+}
+
+.options .options:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+.Categories {
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.Categories .js-category-btn {
+    font-size: 14px;
+    padding: 8px 15px;
+}
+
+.options .options {
+    font-size: 14px;
+    padding: 8px 12px;
+}
+}
+
