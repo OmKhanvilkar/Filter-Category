@@ -1,2 +1,2 @@
-## Filter Category
-# simple representation of how the filters works.
+# Filter Category
+## simple representation of how the filters works.
